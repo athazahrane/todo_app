@@ -77,7 +77,10 @@ class TodoController extends Controller
     public function index()
     {
         //menampilkan halaman awal, semua data
-        return view('dashboard.index');
+        // ambil semua data todo dari database
+        $todos = Todo::all();
+        //tampilin file index di folder dashboard dan bawa data dari variable yang namanya todos ke fil tersebut
+        return view('dashboard.index', compact('todos'));
     }
 
     public function complated()

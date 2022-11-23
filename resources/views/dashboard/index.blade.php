@@ -38,23 +38,8 @@
         </div>
     </div>
     <div id="comments" class="mt-1">
-        <div class="comment d-flex align-items-start justify-content-between">
-            <div class="mr-2">
-                <label class="option">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="d-flex flex-column">
-                <b class="text-justify">
-                    This is the first task that has a really long name to test this.
-                </b>
-                <p class="text-muted">Completed <span class="date">Dec 16, 2019</span></p>
-            </div>
-            <div class="ml-md-4 ml-0">
-                <span class="fas fa-arrow-right btn"></span>
-            </div>
-        </div>
+        @foreach ($todos as $todo)
+            
         <div class="comment d-flex align-items-start justify-content-between">
             <div class="mr-2">
                 <label class="option">
@@ -64,31 +49,15 @@
             </div>
             <div class="d-flex flex-column w-75">
                 <b class="text-justify">
-                    Add to Copper
+                    {{ $todo['title']}}
                 </b>
-                <p class="text-muted">Completed <span class="date">Dec 16, 2019</span></p>
+                <p class="text-muted">{{ $todo['status'] ? 'Complated' : 'On-Progress' }} <span class="date">Nov 23, 2022</span></p>
             </div>
             <div class="ml-auto">
                 <span class="fas fa-arrow-right btn"></span>
             </div>
         </div>
-        <div class="comment d-flex align-items-start justify-content-between">
-            <div class="mr-2">
-                <label class="option">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="d-flex flex-column w-75">
-                <b class="text-justify">
-                    Check on-boarding status
-                </b>
-                <p class="text-muted">Completed <span class="date">Dec 16, 2019</span></p>
-            </div>
-            <div class="ml-auto">
-                <span class="fas fa-arrow-right btn"></span>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
