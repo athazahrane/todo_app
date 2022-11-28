@@ -137,9 +137,13 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todo $todo)
+    public function edit($id)
     {
         //menampilkan form edit data
+        //ambil data dari db yang idnya sama dengan id yang dikirim dari routenya
+        $todo = Todo::Where('id', $id)->first();
+        // lalu tampilkan halaman dari view edit dengan mengirim data yang ada di variable todo
+        return view('dashboard.edit', compact('todo'));
     }
 
     /**
@@ -149,9 +153,25 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, $id)
     {
         //mengubah data di database
+        //valildasi
+        $request->validate([
+            'title' => 'required|min:3',
+            'date' => 'required',
+            'description' => 'required|min:8',
+        ]);
+
+        Todo::where('id', $id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'date' => $request->date,
+            'status' => 0, 
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return redirect('/todo/')->with('succesUpdate', 'Data berhasil siperbarui!');
     }
 
     /**
