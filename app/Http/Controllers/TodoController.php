@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class TodoController extends Controller
 {
@@ -79,15 +80,36 @@ class TodoController extends Controller
         //menampilkan halaman awal, semua data
         // ambil semua data todo dari database (Todo::all)
         // cari data todo yang punya user_id nya sama dengan id orang yang login, kalau ketemu datanya diambil
-        $todos = Todo::where('user_id', '=', Auth::user()->id)->get();
+        // kalau filternya ada lebih dari satu dibuat bentuk array multidimensi
+        $todos = Todo::where([
+        ['user_id', '=', Auth::user()->id],
+        ['status', '=', 0],
+        ])->get();
         //tampilin file index di folder dashboard dan bawa data dari variable yang namanya todos ke fil tersebut
         return view('dashboard.index', compact('todos'));
     }
 
     public function complated()
     {
-        return view('dashboard.complated');
+        $todos = Todo::where([
+            ['user_id', '=', Auth::user()->id],
+            ['status', '=', 1],
+            ])->get();
+        return view('dashboard.complated', compact('todos'));
     }
+
+    public function updateComplated($id)
+    {
+        //$id oada oaraneter mengambil data dari path dinamis {id}
+        // cari data yang memiliki value column id sama dengan data id yang dikirim ke route, maka update baris data tersebut
+        Todo::Where('id', $id)->update([
+            'status' => 1,
+            'done_time' => Carbon::now(),
+        ]);
+        // kalau berhasil bakal diarahin ke halaman list todo yang complated dengan pemberitahuan
+        return redirect()->route('todo.complated')->with('done', 'Todo sudah selesai dikerjakan!');
+    }
+
     public function create()
     {
         //menampilkan halaman input form tambah data
