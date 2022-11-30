@@ -15,39 +15,36 @@
         @endif
         @csrf
         <div class="text-center logo ml-3">
-            <i class="fas fa-user-plus"></i>
+            <h3>Register Page</h3>
         </div>
         <div class="text-center mt-3">
             
-        <span class="info-text">silahkan mengisi data di bawah untuk membuat akun baru</span>
+        
         
         </div>
         <div class="position-relative mt-3 form-input">
-            <label>Email</label>
-            <input class="form-control" type="email" name="email">
-            <i class="fas fa-envelope"></i>
+            <label>E-mail</label>
+            <input class="form-control" type="email" name="email" placeholder="Masukan E-mail">
         </div>
         <div class="position-relative mt-3 form-input">
             <label>Nama Lengkap</label>
-            <input class="form-control" type="text" name="name">
-            <i class="fas fa-id-card"></i>
+            <input class="form-control" type="text" name="name" placeholder="Masukan Nama Lengkap">
         </div>
         <div class="position-relative mt-3 form-input">
             <label>Username</label>
-            <input class="form-control" type="text" name="username">
-            <i class="fas fa-user"></i>
+            <input class="form-control" type="text" name="username" placeholder="Masukan Username">
         </div>
         <div class="position-relative mt-3 form-input">
             <label>Password</label>
-            <input class="form-control" type="password" name="password">
-            <i class="fas fa-lock"></i>
+            <input class="form-control" type="password" name="password" placeholder="Masukan Password">
         </div>
         
         
-        <div class=" mt-5 d-flex justify-content-between align-items-center">
-            <span><a href="/" style="text-decoration: underline;">Login</a></span>
-            <button type="submit" class="go-button"><i class="fas fa-plus"></i></button>
-        </div>
+        <div class=" mt-3 ">
+            Sudah punya akun?  <span><a href="/" style="text-decoration: none;">Login disini  </a></span>
+            
+        </div><br>
+        <button type="submit" class="btn btn-primary">Buat akun</button>
     </form>
 </div>
 @endsection

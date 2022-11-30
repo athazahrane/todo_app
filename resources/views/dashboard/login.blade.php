@@ -20,7 +20,7 @@
             </div>
         @endif
         @if ($errors->any())
-            <div class="alert alert-danger">
+             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -29,28 +29,27 @@
             </div>
         @endif
         <div class="text-center logo">
-            <i class="fas fa-user-circle"></i>
+            <H3>Login Page</H3>
         </div>
         <div class="text-center mt-3">
             
-        <span class="info-text">silahkan mengisi username dan password untuk login</span>
+
         
         </div>
         <div class="position-relative mt-3 form-input">
             <label>Username</label>
-            <input class="form-control" type="text" name="username">
-            <i class="fas fa-user"></i>
+            <input class="form-control" type="text" name="username" placeholder="Masukan Username">
         </div>
         <div class="position-relative mt-3 form-input">
             <label>Password</label>
-            <input class="form-control" type="password" name="password">
-            <i class="fas fa-lock"></i>
+            <input class="form-control" type="password" name="password" placeholder="Masukan Password">
         </div>
-        
-        <div class=" mt-5 d-flex justify-content-between align-items-center">
-            <span><a href="{{route('register')}}" style="text-decoration: underline;">Tidak punya akun?</a></span>
-            <button type="submit" class="go-button"><i class="fas fa-long-arrow-right"></i></button>
-        </div>
+
+        <div class=" mt-3 ">
+            Tidak punya akun?  <span><a href="{{route('register')}}" style="text-decoration: none;">Register disini  </a></span>
+            
+        </div><br>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>
 @endsection

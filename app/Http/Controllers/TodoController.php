@@ -77,8 +77,9 @@ class TodoController extends Controller
     public function index()
     {
         //menampilkan halaman awal, semua data
-        // ambil semua data todo dari database
-        $todos = Todo::all();
+        // ambil semua data todo dari database (Todo::all)
+        // cari data todo yang punya user_id nya sama dengan id orang yang login, kalau ketemu datanya diambil
+        $todos = Todo::where('user_id', '=', Auth::user()->id)->get();
         //tampilin file index di folder dashboard dan bawa data dari variable yang namanya todos ke fil tersebut
         return view('dashboard.index', compact('todos'));
     }
@@ -171,7 +172,7 @@ class TodoController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect('/todo/')->with('succesUpdate', 'Data berhasil siperbarui!');
+        return redirect('/todo/')->with('succesUpdate', 'Data berhasil diperbarui!');
     }
 
     /**
@@ -180,8 +181,14 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todo $todo)
+    public function destroy($id)
     {
-        //menghapus data dari database
+        // menghapus data dari database
+        // parameter $id akan mengambul dari path dinamis {id}
+        // cari data yang isian column id nya sama dengan $id yang dikirim ke path dinamis
+        // kalau ada, ambil terus hapus datanya
+        Todo::where('id', '=', $id)->delete();
+        // kalau berhasil, bakal dibalikin ke halamanlist todo dengan pemberitahuan
+        return redirect()->route('todo.index')->with('successDelete', 'Berhasil menghapus data Todo!');
     }
 }

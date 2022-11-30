@@ -2,17 +2,18 @@
 
 body{
     /* background-color: #eee; */
-    background-image: url(../img/bg.jpg);
+    background-image: url(../img/background.jpg);
     background-size: cover;
     font-family: "Poppins", sans-serif;
     font-weight: 300;
 }
 
 .card{
-    width:350px;
+    width:400px;
     padding:10px;
     border:none;
-    border-radius:20px;
+    border-radius:15px;
+    margin-top: 100px;
 }
 
 .logo i {
@@ -23,7 +24,7 @@ body{
 .form-input input{
     height:45px;
     padding-right:35px;
-    border:2px solid #eee;
+    border:2px solid rgb(238, 238, 238);
     transition:all 0.5s;
 }
 
@@ -48,7 +49,7 @@ body{
     width:50px;
     font-size:29px;
     color:#fff;
-    background-color:#749F82;
+    background-color:#2570a5;
     border-radius:50%;
     transition:all 0.5s;
 }
@@ -183,7 +184,8 @@ p.text-muted{
 @media(max-width: 767px){
     .wrapper{
         padding: 20px;
-        margin: 30px 10px;
+        margin: 30px 10px 30px 10px;
+
     }
 }
 @media(max-width: 375px){
@@ -222,6 +224,7 @@ p.text-muted{
     font-weight: 300;
     margin-bottom: 10px;
 }
+
   
 #create-form h4 {
     margin: 5px 0 15px;
@@ -315,7 +318,9 @@ fieldset {
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #665A48;
+    /* color: #665A48; */
+    color: rgb(255, 255, 255);
+    
 }
 
 .navbar-right-top .nav-item {
@@ -330,7 +335,7 @@ fieldset {
     padding: 13px 20px;
     font-size: 16px;
     line-height: 2;
-    color: #82849f;
+    color: #ffffff;
 }
 
 .nav-user-dropdown {
@@ -340,12 +345,13 @@ fieldset {
 }
 
 .nav-user-info {
-    background-color: #665A48;
+    background-color: #9fd6ec;
     line-height: 1.4;
     padding: 12px;
-    color: #fff;
+    color: rgb(54, 20, 20);
     font-size: 13px;
     border-radius: 2px 2px 0 0;
+    font-weight: bold;
 }
 
 .nav-user-info .status {
@@ -371,4 +377,15 @@ fieldset {
 
 .nav-user-dropdown .dropdown-item:hover {
     background-color: #f7f7fb;
+}
+
+.nav-link {
+    display: inline-block;
+    margin-right: 1rem;
+    line-height: inherit;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 700;
+    /* color: #665A48; */
+    color: rgb(255, 255, 255);
 }

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="wrapper bg-white">
+<div class="wrapper bg-white mt-5">
     <div class="d-flex align-items-start justify-content-between">
         <div class="d-flex flex-column">
             <div class="h5">My Complated Todo's</div>

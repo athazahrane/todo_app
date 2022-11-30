@@ -21,4 +21,5 @@ Route::middleware('isLogin')->prefix('/todo')->name('todo.')->group(function () 
     Route::post('/store', [TodoController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [TodoController::class, 'edit'])->name('edit'); //untuk mengedit-> {id} untuk mengedit id yang dipilih
     Route::patch('/update/{id}', [TodoController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [TodoController::class, 'destroy'])->name('delete');
 });

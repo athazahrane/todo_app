@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="wrapper bg-white">
+<div class="wrapper bg-white mt-5">
     @if (Session::get('notAllowed'))
         <div class="alert alert-danger">
             {{ Session::get('notAllowed') }}
@@ -17,6 +17,11 @@
             {{ Session::get('succesUpdate') }}
         </div>
     @endif
+    @if (Session::get('successDelete'))
+        <div class="alert alert-success">
+            {{ Session::get('successDelete') }}
+        </div>
+    @endif
     <div class="d-flex align-items-start justify-content-between">
         <div class="d-flex flex-column">
             <div class="h5">My Todo's</div>
@@ -29,7 +34,7 @@
             </span>
         </div>
         <div class="info btn ml-md-4 ml-0">
-            <span class="fas fa-info" title="Info"></span>
+            <span class="fas fa-info" style="font-size: 10px;" title="Info"></span>
         </div>
     </div>
     <div class="work border-bottom pt-3">
@@ -59,7 +64,16 @@
                 {{-- untuk membuat tanggal menjadi tulisan --}}
             </div>
             <div class="ml-auto">
-                <span class="fas fa-arrow-right btn"></span>
+                {{-- ketika akan memuat fitur delete, harus menggunakan form, kenapa? karena kalalu kita jalanin fitur delete itu kan artinya 
+                    mau ubah di database nya kan? kalau hal hal yang berhubungan dengan modifiikasi database harus menggunakan form --}}
+                <form action="{{ route('todo.delete', $todo['id']) }}" method="POST">
+                    @csrf
+                    {{-- menimpa attribute method="POST" pada form agar menjadi delete, karena di method routenya menggunakan delete --}}
+                    @method('DELETE')
+                    {{-- biar action form nya bisa dijalanin, buttonnya harus type submit --}}
+                    <button class="fas fa-trash text-danger btn"></button>
+                </form>
+                {{-- <span class="fas fa-arrow-right btn"></span> --}}
             </div>
         </div>
         @endforeach
