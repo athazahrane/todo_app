@@ -19,9 +19,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
-                <li class="nav-item active">
+                {{-- <li class="nav-item active">
                     <a class="nav-link" href="/logout">Log out</a>
-                </li>
+                </li> --}}
+                <li class="nav-item dropdown nav-user">
+                    <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://i.pinimg.com/736x/17/f0/10/17f01070dcf9691576127f8c57e07130.jpg" alt="" class="rounded-circle" width="35"></a>
+                    <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                        <div class="nav-user-info">
+                            <p class="mb-0 nav-user-name">{{ Auth::user()->name }}</p>
+                        </div>
+                        <a class="dropdown-item" href="/logout">
+                            <i class="fa-sharp fa-solid fa-arrow-right mr-2"></i><b>Logout</b>
+                        
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
