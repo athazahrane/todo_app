@@ -2,7 +2,7 @@
 
 body{
     /* background-color: #eee; */
-    background-image: url(../img/background.jpg);
+    background-image: url(../img/bg2.jpg);
     background-size: cover;
     font-family: "Poppins", sans-serif;
     font-weight: 300;
@@ -274,6 +274,7 @@ fieldset {
     border-radius: 0 !important;
 }
  
+
 #create-form button[type="submit"] {
     background: #2caf74ea;
 }
@@ -302,6 +303,7 @@ fieldset {
 }
 
 /* navbar */
+
 .navbar {
     padding: 0px;
     border-bottom: 1px solid #e6e6f2;
@@ -318,7 +320,7 @@ fieldset {
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 700;
-    /* color: #665A48; */
+
     color: rgb(255, 255, 255);
     
 }
@@ -389,3 +391,13 @@ fieldset {
     /* color: #665A48; */
     color: rgb(255, 255, 255);
 }
+
+.btn-primary{
+    border-radius: 15px;
+    width: 150px;
+    text-align: center;
+}
+
+/* .form-input {
+    background-color: #000;
+} */

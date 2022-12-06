@@ -48,8 +48,9 @@
         <div class=" mt-3 ">
             Tidak punya akun?  <span><a href="{{route('register')}}" style="text-decoration: none;">Register disini  </a></span>
             
-        </div><br>
+        </div><br><center>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    </center>
 </div>
 @endsection
